@@ -1,0 +1,24 @@
+h1 {
+  justify-content: center;
+  text-align: center;
+}
+
+form {
+  max-width: 400px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+input {
+  padding: 8px;
+  margin-top: 4px;
+}
+
+button {
+  padding: 10px;
+  cursor: pointer;
+}

@@ -1,0 +1,25 @@
+.frame {
+    border: 1px solid white;
+    display: flex;
+    max-width: 100vh;
+    max-height: 100vh;
+    justify-content: center;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    margin-top: 3%;
+}
+
+.notfound {
+    border: 1px solid white;
+    display: flex;
+    max-width: 100vh;
+    max-height: 100vh;
+    justify-content: center;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    margin-top: 3%;
+}
+
+.item {
+    list-style: none;
+}
