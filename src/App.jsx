@@ -1,9 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts } from "./redux/contacts/operations";
 import { refreshUser } from "./redux/auth/operations";
+import { selectIsRefreshing, selectIsLoggedIn } from "./redux/auth/selectors";
 
 import Layout from "./components/layout/Layout";
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
@@ -18,14 +19,22 @@ import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+  const isRefreshing = useSelector(selectIsRefreshing);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      dispatch(fetchContacts());
+    }
+  }, [dispatch, isLoggedIn]);
+
+  if (isRefreshing) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div>
